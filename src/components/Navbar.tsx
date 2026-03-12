@@ -22,7 +22,7 @@ const navLinks = [
     name: 'Serviços', 
     path: '#',
     dropdown: [
-      { name: 'Hospedagem', path: '/hospedagem' },
+      // { name: 'Hospedagem', path: '/hospedagem' },
       { name: 'App Oficial', path: '/app' },
     ]
   },

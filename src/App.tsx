@@ -65,7 +65,7 @@ export default function App() {
         <Route path="/imprensa" element={<Press />} />
         <Route path="/app" element={<AppPage />} />
         <Route path="/transfer" element={<Transfer />} />
-        <Route path="/hospedagem" element={<Accommodation />} />
+        {/* <Route path="/hospedagem" element={<Accommodation />} /> */}
       </Routes>
     </Layout>
   );
