@@ -9,7 +9,7 @@ const lotes = [
   {
     name: '1º Lote',
     period: 'De 15/03/26 Até 30/04/2026',
-    active: false,
+    active: true,
     categories: [
       {
         title: 'Associados Pessoa Física ou Jurídica',
@@ -203,18 +203,21 @@ export function Tickets() {
                       ))}
                     </div>
                     
-                    <button 
+                    <a 
+                      href="https://proevento.shop/24-congresso-fenacor/"
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className={cn(
                         "w-full py-4 rounded-xl font-bold transition-all duration-300 flex items-center justify-center gap-2",
                         lotes[activeTab].active
                           ? "bg-brand-blue text-white shadow-lg hover:bg-brand-teal hover:shadow-xl"
-                          : "bg-slate-100 text-slate-400 cursor-not-allowed"
+                          : "bg-slate-100 text-slate-400 cursor-not-allowed pointer-events-none"
                       )}
-                      disabled={!lotes[activeTab].active}
+                      aria-disabled={!lotes[activeTab].active}
                     >
                       {lotes[activeTab].active ? 'Inscreva-se Agora' : 'Em Breve'}
                       {lotes[activeTab].active && <ArrowRight className="w-5 h-5" />}
-                    </button>
+                    </a>
                   </div>
                 ))}
               </div>
