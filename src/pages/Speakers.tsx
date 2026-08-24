@@ -89,7 +89,7 @@ export function Speakers() {
               ✕
             </button>
             
-            <div className="grid md:grid-cols-2">
+            <div className={cn("grid md:grid-cols-2", !currentSpeaker.bio?.trim() && "md:min-h-[430px]")}>
               <div className="aspect-[3/4] md:aspect-auto relative bg-slate-100 flex items-center justify-center">
                 {currentSpeaker.image?.startsWith('data:') ? (
                   <div className="w-32 h-32 text-slate-400">
