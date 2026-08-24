@@ -15,7 +15,7 @@ export function Presentation() {
       />
 
       <section className="py-20 bg-white">
-        <div className="container mx-auto px-4 md:px-6 max-w-4xl prose prose-slate lg:prose-lg">
+        <div className="container mx-auto px-4 md:px-6 max-w-4xl text-page-content">
           <h2>A Nova Era da Distribuição de Seguros no Brasil</h2>
           <p>
             O 24º Congresso Brasileiro dos Corretores de Seguros chega em um momento decisivo para o mercado de seguros. Novas tecnologias, mudanças no comportamento do consumidor, evolução regulatória e o surgimento de novos modelos de negócios estão transformando profundamente a forma como os seguros são distribuídos no país.

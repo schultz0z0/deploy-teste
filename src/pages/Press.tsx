@@ -1,6 +1,7 @@
 import { SEO } from '@/components/SEO';
-import { Mail, Phone } from 'lucide-react';
+import { Mail, Phone, Download } from 'lucide-react';
 import { PageHeader } from '@/components/PageHeader';
+import logoFile from '../Logo/Logo_001.pdf';
 
 export function Press() {
   return (
@@ -17,7 +18,7 @@ export function Press() {
 
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4 md:px-6 max-w-4xl">
-          <div className="prose prose-slate lg:prose-lg mb-12">
+          <div className="text-page-content mb-12">
             <p>
               Os jornalistas e profissionais de imprensa serão muito bem-vindos ao 24º Congresso Brasileiro dos Corretores de Seguros. A organização do evento reconhece e valoriza o papel essencial da imprensa na divulgação de iniciativas que fortalecem e impulsionam o mercado de seguros no Brasil.
             </p>
@@ -54,28 +55,24 @@ export function Press() {
 
           <div className="mt-12">
             <h3 className="text-2xl font-bold text-slate-900 mb-6">Downloads</h3>
-            <div className="grid md:grid-cols-2 gap-6">
-              <div className="p-6 bg-slate-50 rounded-xl border border-slate-200 flex items-center justify-between group hover:border-brand-blue transition-colors cursor-pointer">
+            <div className="grid md:grid-cols-1 gap-6 max-w-md">
+              <a 
+                href={logoFile}
+                download="Logo_24_Congresso.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-6 bg-slate-50 rounded-xl border border-slate-200 flex items-center justify-between group hover:border-brand-blue hover:shadow-md transition-all cursor-pointer"
+              >
                 <div>
-                  <h4 className="font-bold text-slate-900">Press Release Oficial</h4>
-                  <p className="text-sm text-slate-500">PDF • 2.5 MB</p>
+                  <h4 className="font-bold text-slate-900">Logo Oficial</h4>
+                  <p className="text-sm text-slate-500">PDF • Baixar</p>
                 </div>
-                <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-sm group-hover:bg-brand-blue group-hover:text-white transition-colors">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
+                <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-sm group-hover:bg-brand-blue group-hover:text-white transition-colors shrink-0">
+                  <Download className="w-5 h-5" />
                 </div>
-              </div>
-              <div className="p-6 bg-slate-50 rounded-xl border border-slate-200 flex items-center justify-between group hover:border-brand-blue transition-colors cursor-pointer">
-                <div>
-                  <h4 className="font-bold text-slate-900">Fotos em Alta Resolução</h4>
-                  <p className="text-sm text-slate-500">ZIP • 156 MB</p>
-                </div>
-                <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-sm group-hover:bg-brand-blue group-hover:text-white transition-colors">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
-                </div>
-              </div>
+              </a>
             </div>
           </div>
-
 
         </div>
       </section>

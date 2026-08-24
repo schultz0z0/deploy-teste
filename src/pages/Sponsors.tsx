@@ -82,23 +82,32 @@ export function Sponsors() {
                   {category.title}
                 </h3>
                 <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12">
-                  {category.sponsors.map((sponsor) => (
+                  {(category.title === 'Master' ? category.sponsors : [...category.sponsors]
+                    .sort((a, b) => a.name.localeCompare(b.name, 'pt-BR', { sensitivity: 'base' })))
+                    .map((sponsor) => (
                     <motion.div
                       key={sponsor.id}
-                      whileHover={{ scale: 1.05, filter: 'grayscale(0%)' }}
+                      whileHover={{ scale: 1.05 }}
                       className={cn(
-                        "transition-all duration-300 grayscale opacity-80 hover:opacity-100 bg-white rounded-xl shadow-sm border border-slate-100 flex items-center justify-center p-4",
-                        category.size === 'xl' && "h-32 w-48 md:h-40 md:w-64",
-                        category.size === 'lg' && "h-24 w-40 md:h-32 md:w-56",
-                        category.size === 'md' && "h-20 w-32 md:h-24 md:w-40",
-                        category.size === 'sm' && "h-16 w-24 md:h-20 md:w-32",
-                        category.size === 'xs' && "h-12 w-20 md:h-16 md:w-24",
+                        "transition-all duration-300 bg-white rounded-xl shadow-sm border border-slate-100 flex items-center justify-center p-3 md:p-4",
+                        category.size === 'xl' && "h-28 w-44 md:h-36 md:w-60",
+                        category.size === 'lg' && "h-22 w-36 md:h-28 md:w-48",
+                        category.size === 'md' && "h-20 w-32 md:h-24 md:w-44",
+                        category.size === 'sm' && "h-16 w-28 md:h-20 md:w-36",
+                        category.size === 'xs' && "h-12 w-20 md:h-14 md:w-24",
                       )}
                     >
                       <img 
                         src={sponsor.logo} 
                         alt={sponsor.name} 
-                        className="max-h-full max-w-full object-contain"
+                        className={cn(
+                          "max-w-[88%] max-h-[75%] object-contain hover:scale-110 transition-all duration-500",
+                          sponsor.name === 'Mapfre' && "max-h-[60%]",
+                          sponsor.name === 'MAG' && "max-h-[50%]",
+                          sponsor.name === 'HDI/Yelum' && "max-h-[55%]",
+                          sponsor.name === 'Icatu Seguros' && "max-h-[55%]",
+                          sponsor.name === 'ENS' && "max-h-[50%]"
+                        )}
                       />
                     </motion.div>
                   ))}
@@ -111,4 +120,3 @@ export function Sponsors() {
     </div>
   );
 }
-

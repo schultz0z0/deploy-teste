@@ -15,14 +15,24 @@ const navLinks = [
       { name: 'Termos de uso de imagem', path: '/termos-imagem' },
       { name: 'Política de privacidade', path: '/privacidade' },
       { name: 'Regulamento de Inscrição', path: '/regulamento-inscricao' },
+      { name: 'Regulamento Ação Promocional Conexão Futuro Seguro', path: '/regulamento-conexao-futuro-seguro' },
       { name: 'Regulamento Ação Promocional CONSEGNNE', path: '/regulamento-consegnne' },
+    ]
+  },
+  { 
+    name: 'Programação', 
+    path: '#',
+    dropdown: [
+      { name: 'Programação Completa', path: '/programacao' },
+      { name: 'Programação das Salas de Negócios', path: '/programacao-salas-negocios' },
     ]
   },
   { 
     name: 'Serviços', 
     path: '#',
     dropdown: [
-      // { name: 'Hospedagem', path: '/hospedagem' },
+      { name: 'Hospedagem', path: '/hospedagem' },
+      { name: 'Transfer', path: '/transfer' },
       { name: 'App Oficial', path: '/app' },
     ]
   },
@@ -113,6 +123,11 @@ export function Navbar() {
             >
               <Link
                 to={link.path}
+                onClick={(e) => {
+                  if (link.path === '#') {
+                    e.preventDefault();
+                  }
+                }}
                 className={cn(
                   'text-sm font-medium transition-colors relative py-2 flex items-center gap-1',
                   location.pathname === link.path || (link.dropdown && link.dropdown.some(d => d.path === location.pathname)) 

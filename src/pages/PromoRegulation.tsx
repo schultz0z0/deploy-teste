@@ -14,7 +14,7 @@ export function PromoRegulation() {
       />
 
       <section className="py-20 bg-white">
-        <div className="container mx-auto px-4 md:px-6 max-w-4xl prose prose-slate lg:prose-lg">
+        <div className="container mx-auto px-4 md:px-6 max-w-4xl text-page-content">
           <h2>Ação Promocional Congrecor</h2>
           <p>
             Esta ação promocional visa incentivar a participação antecipada no evento, oferecendo benefícios exclusivos para os primeiros inscritos.

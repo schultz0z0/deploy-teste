@@ -9,7 +9,8 @@ const lotes = [
   {
     name: '1º Lote',
     period: 'De 15/03/26 Até 30/04/2026',
-    active: true,
+    active: false,
+    esgotado: true,
     categories: [
       {
         title: 'Associados Pessoa Física ou Jurídica',
@@ -41,6 +42,7 @@ const lotes = [
     name: '2º Lote',
     period: 'De 01/05/26 Até 30/06/2026',
     active: false,
+    esgotado: true,
     categories: [
       {
         title: 'Associados Pessoa Física ou Jurídica',
@@ -62,7 +64,7 @@ const lotes = [
         title: 'Outros',
         subtitle: '(Plataforma, seguradoras patrocinadoras ou expositoras, etc)',
         prices: [
-          { label: 'Congressista / Acompanhante (Adulto a partir de 18 anos)', value: 'R$ 3.000,00' },
+          { label: 'Congressista / Acompanhante (Adulto a partir de 18 anos)', value: 'R$ 3.300,00' },
           { label: 'Acompanhante menor (de 12 a 17 anos)', value: 'R$ 1.650,00' }
         ]
       }
@@ -72,6 +74,7 @@ const lotes = [
     name: '3º Lote',
     period: 'De 01/07/26 Até 31/07/2026',
     active: false,
+    esgotado: true,
     categories: [
       {
         title: 'Associados Pessoa Física ou Jurídica',
@@ -93,7 +96,7 @@ const lotes = [
         title: 'Outros',
         subtitle: '(Plataforma, seguradoras patrocinadoras ou expositoras, etc)',
         prices: [
-          { label: 'Congressista / Acompanhante (Adulto a partir de 18 anos)', value: 'R$ 3.600,00' },
+          { label: 'Congressista / Acompanhante (Adulto a partir de 18 anos)', value: 'R$ 3.630,00' },
           { label: 'Acompanhante menor (de 12 a 17 anos)', value: 'R$ 1.815,00' }
         ]
       }
@@ -104,24 +107,27 @@ const lotes = [
 const faqs = [
   {
     q: "Quais as formas de pagamento?",
-    a: "Aceitamos cartão de crédito em até 12x, PIX e boleto bancário à vista."
+    a: "Aceitamos cartão de crédito em até 10x, PIX e boleto bancário à vista."
   },
   {
     q: "Posso transferir meu ingresso?",
-    a: "Sim, a titularidade pode ser alterada até 7 dias antes do evento através da nossa plataforma."
+    a: "Sim, a titularidade pode ser alterada até 31 de julho de 2026, conforme instruções descritas no Regulamento de Inscrições disponível neste site."
   },
   {
     q: "Haverá certificado?",
-    a: "Sim, todos os participantes receberão certificado de participação de 24 horas complementares."
+    a: "Sim, todos os participantes receberão certificado de participação."
   },
   {
     q: "O evento oferece alimentação?",
-    a: "O ingresso presencial inclui coffee breaks. O almoço é por conta do participante, exceto para ingressos VIP."
+    a: "Sim, Serão oferecidos 3(três) jantares e 2(dois) almoços."
   }
 ];
 
 export function Tickets() {
-  const [activeTab, setActiveTab] = useState(0);
+  const [activeTab, setActiveTab] = useState(() => {
+    const activeIndex = lotes.findIndex(l => l.active);
+    return activeIndex >= 0 ? activeIndex : 0;
+  });
 
   return (
     <div className="min-h-screen bg-slate-50">
@@ -140,8 +146,11 @@ export function Tickets() {
         <div className="container mx-auto px-4 md:px-6">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-display font-bold text-slate-900 mb-4">Valores de Inscrição</h2>
-            <p className="text-slate-600 max-w-2xl mx-auto text-lg">
+            <p className="text-slate-600 max-w-2xl mx-auto text-lg mb-6">
               Confira os valores por lote e categoria, e garanta sua participação no maior evento do mercado de seguros.
+            </p>
+            <p className="text-slate-900 font-bold max-w-2xl mx-auto text-lg">
+              Corretores de Seguros associados aos Sincor´s, procurem seus Sindicatos para informações sobre condições especiais.
             </p>
           </div>
 
@@ -184,6 +193,11 @@ export function Tickets() {
                     Lote Atual
                   </div>
                 )}
+                {lotes[activeTab].esgotado && (
+                  <div className="mt-2 text-red-500 font-bold uppercase tracking-wider text-sm">
+                    Lote Esgotado
+                  </div>
+                )}
               </div>
               
               <div className="grid md:grid-cols-3 gap-8">
@@ -215,7 +229,7 @@ export function Tickets() {
                       )}
                       aria-disabled={!lotes[activeTab].active}
                     >
-                      {lotes[activeTab].active ? 'Inscreva-se Agora' : 'Em Breve'}
+                      {lotes[activeTab].active ? 'Inscreva-se Agora' : (lotes[activeTab].esgotado ? 'Esgotado' : 'Em Breve')}
                       {lotes[activeTab].active && <ArrowRight className="w-5 h-5" />}
                     </a>
                   </div>

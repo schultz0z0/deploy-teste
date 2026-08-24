@@ -14,7 +14,7 @@ export function Policies() {
       />
 
       <section className="py-20 bg-white">
-        <div className="container mx-auto px-4 md:px-6 max-w-4xl prose prose-slate lg:prose-lg">
+        <div className="container mx-auto px-4 md:px-6 max-w-4xl text-page-content">
           <h2>Política de Privacidade</h2>
           <p>
             Sua privacidade é importante para nós. É política do Congresso Futuro respeitar a sua privacidade em relação a qualquer informação sua que possamos coletar no site Congresso Futuro, e outros sites que possuímos e operamos.

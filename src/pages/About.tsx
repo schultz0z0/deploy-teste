@@ -25,14 +25,15 @@ export function About() {
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
+            className="text-page-content"
           >
             <h2 className="text-3xl font-display font-bold text-slate-900 mb-6">
               A NOVA ERA DA DISTRIBUIÇÃO DE SEGUROS NO BRASIL
             </h2>
-            <p className="text-slate-600 mb-6 leading-relaxed">
+            <p>
               O 24º Congresso Brasileiro dos Corretores de Seguros será, na prática, uma imensa e completa plataforma de qualificação profissional, atualização técnica e debates intensos sobre a nova era da distribuição de seguros no Brasil.
             </p>
-            <p className="text-slate-600 mb-6 leading-relaxed">
+            <p>
               Durante os três dias de evento, os participantes terão acesso a conteúdos exclusivos, discussões sobre tendências globais, casos de sucesso e insights sobre novas tecnologias que estão redefinindo o mercado. Dessa forma, especialmente para os Corretores de Seguros, será a oportunidade perfeita para aprimorar competências, diversificar carteiras e descobrir novos caminhos para o crescimento sustentável.
             </p>
             <ul className="space-y-4">

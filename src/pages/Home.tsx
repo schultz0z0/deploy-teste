@@ -1,6 +1,7 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
-import { Calendar, MapPin, Users, ArrowRight, Star, Gift, Map } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Calendar, MapPin, Users, ArrowRight, Star, Gift, Map, Linkedin, X } from 'lucide-react';
 import { HeroWaves } from '@/components/HeroWaves';
 import { CTASection } from '@/components/CTASection';
 import { SEO } from '@/components/SEO';
@@ -9,8 +10,42 @@ import { speakers } from '@/data/speakers';
 import { sponsorCategories } from '@/data/sponsorCategories';
 import { cn } from '@/lib/utils';
 
+const homeSpeakerQueries = [
+  { query: 'Alessandro Octaviani', role: 'Superintendente da Susep' },
+  { query: 'Armando Vergílio', role: 'Presidente da Fenacor' },
+  { query: 'Dyogo Oliveira', role: 'Presidente da CNSeg' },
+  { query: 'Lucas', role: 'Presidente da Escola de Negócios e Seguros - ENS' },
+  { query: 'Garrido', role: 'Presidente do Sincor RJ' },
+  { query: 'Danni Suzuki', role: 'Especialista em Neurociência e Comportamento' },
+  { query: 'Fabi', role: 'Líbero da Seleção Brasileira de Volleyball - Campeã Olímpica' },
+  { query: 'Marco Tulio', role: 'Cofundador do Jota Quest' },
+  { query: 'Pablo', role: 'Médico Psiquiatra' },
+  { query: 'Bruno Sardinha', role: 'CIO Travelers' },
+  { query: 'Edson Franco', role: 'CEO Zurich Brasil' },
+  { query: 'Eduard Folch', role: 'CEO da Allianz Seguros no Brasil' },
+  { query: 'Dal Ri', role: 'CEO do Grupo HDI' },
+  { query: 'Felipe Nascimento', role: 'CEO da MAPFRE Brasil' },
+  { query: 'Ferrara', role: 'Presidente da Tokio Marine Seguradora' },
+  { query: 'Luciano Soares', role: 'Presidente Icatu Seguros' },
+  { query: 'Ney Dias', role: 'CEO da Bradseg Participações SA' },
+  { query: 'Nilton Molina', role: 'Presidente do Instituto de Longevidade e Fundo de Pensão - MAG' },
+  { query: 'Kakinoff', role: 'CEO do Grupo Porto' },
+];
+
 export function Home() {
-  const featuredSpeakers = speakers.filter(s => s.featured).slice(0, 3);
+  const [selectedSpeaker, setSelectedSpeaker] = useState<string | null>(null);
+  const currentSpeaker = speakers.find(s => s.id === selectedSpeaker);
+
+  const homeSpeakers = homeSpeakerQueries
+    .map(item => {
+      const s = speakers.find(sp => sp.name.toLowerCase().includes(item.query.toLowerCase()));
+      if (!s) return null;
+      return {
+        ...s,
+        role: item.role || s.role
+      };
+    })
+    .filter((s): s is typeof speakers[0] => s !== null);
 
   return (
     <div className="overflow-hidden">
@@ -90,7 +125,7 @@ export function Home() {
               className="relative rounded-2xl overflow-hidden shadow-2xl aspect-video"
             >
               <img 
-                src="/Palestras que inspiram .jpg" 
+                src="/Palestras-que-inspiram.jpg" 
                 alt="Palestras Incríveis" 
                 className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
               />
@@ -121,6 +156,72 @@ export function Home() {
                 <ArrowRight className="w-4 h-4" />
               </Link>
             </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Speakers Section - Smaller Cards */}
+      <section className="py-20 bg-slate-50 border-y border-slate-100">
+        <div className="container mx-auto px-4 md:px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-display font-bold text-slate-900">
+              Palestrantes Confirmados
+            </h2>
+            <p className="text-slate-600 mt-4 text-lg max-w-2xl mx-auto">
+              Clique nos palestrantes para conhecer mais sobre suas trajetórias e biografias.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 justify-center">
+            {homeSpeakers.map((speaker, index) => (
+              <motion.div
+                key={speaker.id}
+                layoutId={`speaker-home-${speaker.id}`}
+                onClick={() => setSelectedSpeaker(speaker.id)}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: index * 0.05 }}
+                className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg border border-slate-100 flex flex-col h-full group cursor-pointer transition-all duration-300"
+              >
+                {/* Image container */}
+                <div className="relative aspect-[4/5] overflow-hidden bg-slate-100">
+                  <img 
+                    src={speaker.image} 
+                    alt={speaker.name} 
+                    className={cn("w-full h-full object-cover transition-transform duration-500 group-hover:scale-105", speaker.imagePosition)}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all flex items-end p-4">
+                    <span className="text-white text-xs font-semibold underline decoration-brand-yellow">
+                      Ver biografia
+                    </span>
+                  </div>
+                </div>
+
+                {/* Speaker details */}
+                <div className="p-4 flex flex-col flex-grow text-center">
+                  <h3 className="text-sm font-bold text-slate-900 group-hover:text-brand-blue transition-colors line-clamp-2">
+                    {speaker.name}
+                  </h3>
+                  <p className="text-brand-teal font-medium text-xs mt-1 line-clamp-2">
+                    {speaker.role}
+                  </p>
+                  <p className="text-slate-400 text-[10px] mt-0.5 uppercase tracking-wider font-semibold">
+                    {speaker.company}
+                  </p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          <div className="text-center mt-12">
+            <Link
+              to="/palestrantes"
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-brand-blue text-white font-bold hover:bg-brand-blue/90 transition-colors shadow-lg shadow-brand-blue/20"
+            >
+              Ver todos os palestrantes
+              <ArrowRight className="w-5 h-5" />
+            </Link>
           </div>
         </div>
       </section>
@@ -203,7 +304,7 @@ export function Home() {
               className="order-1 md:order-2 relative rounded-2xl overflow-hidden shadow-2xl aspect-square md:aspect-video"
             >
               <img 
-                src="/Qualificação 1.JPG" 
+                src="/Qualificacao-1.jpg" 
                 alt="Networking e Qualificação" 
                 className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
               />
@@ -225,24 +326,23 @@ export function Home() {
             </p>
           </div>
 
-          {/* <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="group relative overflow-hidden rounded-2xl aspect-[3/4]"
+              className="group relative overflow-hidden rounded-2xl aspect-[3/4] shadow-lg hover:shadow-xl transition-shadow duration-300"
             >
               <img
-                src="https://picsum.photos/seed/samba/400/600"
-                alt="Diogo Nogueira"
+                src="/jon_secada.jpg"
+                alt="Jon Secada"
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity" />
-              <div className="absolute bottom-0 left-0 p-6 text-white">
-                <h3 className="text-2xl font-bold mb-1">Diogo Nogueira</h3>
-                <p className="text-brand-yellow font-medium mb-2">10/10</p>
-                <p className="text-sm text-slate-200">A essência do samba com clássicos e novos sucessos.</p>
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent opacity-90 group-hover:opacity-95 transition-opacity" />
+              <div className="absolute bottom-0 left-0 p-6 text-white w-full">
+                <h3 className="text-2xl font-bold mb-2">Jon Secada</h3>
+                <p className="text-xs text-slate-200 leading-relaxed">Uma das vozes mais marcantes da música internacional, trazendo grandes sucessos românticos e pop para abrir a nossa programação.</p>
               </div>
             </motion.div>
 
@@ -251,18 +351,17 @@ export function Home() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
-              className="group relative overflow-hidden rounded-2xl aspect-[3/4]"
+              className="group relative overflow-hidden rounded-2xl aspect-[3/4] shadow-lg hover:shadow-xl transition-shadow duration-300"
             >
               <img
-                src="https://picsum.photos/seed/reggae/400/600"
-                alt="Toni Garrido"
+                src="/xande_pilares.jpg"
+                alt="Xande de Pilares"
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity" />
-              <div className="absolute bottom-0 left-0 p-6 text-white">
-                <h3 className="text-2xl font-bold mb-1">Toni Garrido</h3>
-                <p className="text-brand-yellow font-medium mb-2">11/10</p>
-                <p className="text-sm text-slate-200">Reggae e pop brasileiro em um show de ritmos e emoções.</p>
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent opacity-90 group-hover:opacity-95 transition-opacity" />
+              <div className="absolute bottom-0 left-0 p-6 text-white w-full">
+                <h3 className="text-2xl font-bold mb-2">Xande de Pilares</h3>
+                <p className="text-xs text-slate-200 leading-relaxed">O melhor do samba e da MPB com a energia contagiante e a voz inconfundível de um dos maiores nomes do pagode nacional.</p>
               </div>
             </motion.div>
 
@@ -271,21 +370,20 @@ export function Home() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: 0.3 }}
-              className="group relative overflow-hidden rounded-2xl aspect-[3/4]"
+              className="group relative overflow-hidden rounded-2xl aspect-[3/4] shadow-lg hover:shadow-xl transition-shadow duration-300"
             >
               <img
-                src="https://picsum.photos/seed/mangueira/400/600"
-                alt="Escola de Samba Mangueira"
+                src="/monobloco.jpg"
+                alt="Monobloco"
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity" />
-              <div className="absolute bottom-0 left-0 p-6 text-white">
-                <h3 className="text-2xl font-bold mb-1">Mangueira</h3>
-                <p className="text-brand-yellow font-medium mb-2">12/10</p>
-                <p className="text-sm text-slate-200">Alegria contagiante e sambas-enredo que marcaram épocas.</p>
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent opacity-90 group-hover:opacity-95 transition-opacity" />
+              <div className="absolute bottom-0 left-0 p-6 text-white w-full">
+                <h3 className="text-2xl font-bold mb-2">Monobloco</h3>
+                <p className="text-xs text-slate-200 leading-relaxed">Celebrando o encerramento do Congresso com a energia contagiante do carnaval de rua carioca e ritmos que vão do samba ao pop.</p>
               </div>
             </motion.div>
-          </div> */}
+          </div>
         </div>
       </section>
 
@@ -318,16 +416,36 @@ export function Home() {
               <h2 className="text-4xl md:text-5xl font-display font-bold mb-6">
                 Sorteios Especiais
               </h2>
-              <p className="text-slate-200 text-lg leading-relaxed mb-8">
+              <p className="text-slate-200 text-lg leading-relaxed mb-4">
                 Além de participar de uma programação rica em conhecimento, networking e oportunidades de negócios, os congressistas Corretores de Seguros, com registro PF ativo na SUSEP, poderão concorrer a prêmios exclusivos, tornando a experiência no evento ainda mais especial.
               </p>
+              <p className="text-slate-300 text-sm mb-8">
+                Certificado de Autorização SPA/ME Nº 06.051512/2026 – Confira{' '}
+                <a 
+                  href="/RG_Zurich_24_Congresso_Aprovado.pdf" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="underline font-bold text-brand-yellow hover:text-white transition-colors"
+                >
+                  aqui
+                </a>{' '}
+                o regulamento.
+              </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <button className="px-8 py-4 rounded-full bg-brand-yellow text-brand-blue font-bold text-lg shadow-lg hover:bg-white transition-colors">
+                <Link 
+                  to="/inscricoes" 
+                  className="inline-flex items-center justify-center px-8 py-4 rounded-full bg-brand-yellow text-brand-blue font-bold text-lg shadow-lg hover:bg-white transition-colors"
+                >
                   Inscreva-se
-                </button>
-                <button className="hidden px-8 py-4 rounded-full bg-transparent border border-white/30 text-white font-bold text-lg hover:bg-white/10 transition-colors">
+                </Link>
+                <a 
+                  href="/RG_Zurich_24_Congresso_Aprovado.pdf" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center px-8 py-4 rounded-full bg-transparent border border-white/30 text-white font-bold text-lg hover:bg-white/10 transition-colors"
+                >
                   Veja o regulamento
-                </button>
+                </a>
               </div>
             </motion.div>
           </div>
@@ -438,24 +556,33 @@ export function Home() {
                   {category.title}
                 </h3>
                 <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12">
-                  {category.sponsors.map((sponsor) => (
+                  {(category.title === 'Master' ? category.sponsors : [...category.sponsors]
+                    .sort((a, b) => a.name.localeCompare(b.name, 'pt-BR', { sensitivity: 'base' })))
+                    .map((sponsor) => (
                     <motion.a
                       key={sponsor.id}
                       href={sponsor.url}
-                      whileHover={{ scale: 1.05, filter: 'grayscale(0%)' }}
+                      whileHover={{ scale: 1.05 }}
                       className={cn(
-                        "transition-all duration-300 grayscale opacity-80 hover:opacity-100",
-                        category.size === 'xl' && "h-24 md:h-32",
-                        category.size === 'lg' && "h-20 md:h-24",
-                        category.size === 'md' && "h-16 md:h-20",
-                        category.size === 'sm' && "h-12 md:h-16",
-                        category.size === 'xs' && "h-8 md:h-12",
+                        "transition-all duration-300 flex items-center justify-center p-2",
+                        category.size === 'xl' && "w-36 h-20 md:w-48 md:h-28",
+                        category.size === 'lg' && "w-32 h-16 md:w-44 md:h-22",
+                        category.size === 'md' && "w-32 h-14 md:w-44 md:h-18",
+                        category.size === 'sm' && "w-28 h-12 md:w-36 md:h-16",
+                        category.size === 'xs' && "w-20 h-8 md:w-28 md:h-12",
                       )}
                     >
                       <img 
                         src={sponsor.logo} 
                         alt={sponsor.name} 
-                        className="h-full w-auto object-contain"
+                        className={cn(
+                          "max-h-full max-w-full object-contain",
+                          sponsor.name === 'Mapfre' && "max-h-[80%]",
+                          sponsor.name === 'MAG' && "max-h-[60%]",
+                          sponsor.name === 'HDI/Yelum' && "max-h-[65%]",
+                          sponsor.name === 'Icatu Seguros' && "max-h-[65%]",
+                          sponsor.name === 'ENS' && "max-h-[55%]"
+                        )}
                       />
                     </motion.a>
                   ))}
@@ -465,6 +592,62 @@ export function Home() {
           </div>
         </div>
       </section>
+
+      {/* Speaker Modal */}
+      <AnimatePresence>
+        {selectedSpeaker && currentSpeaker && (
+          <div 
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/65 backdrop-blur-sm"
+            onClick={() => setSelectedSpeaker(null)}
+          >
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 20 }}
+              transition={{ duration: 0.3 }}
+              className="bg-white rounded-3xl overflow-hidden max-w-2xl w-full shadow-2xl relative"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button
+                onClick={() => setSelectedSpeaker(null)}
+                className="absolute top-4 right-4 p-2 bg-slate-950/10 hover:bg-slate-950/20 rounded-full text-slate-800 hover:text-slate-900 z-10 transition-colors"
+              >
+                <X className="w-5 h-5" />
+              </button>
+              
+              <div className="grid md:grid-cols-2">
+                <div className="aspect-[4/5] md:aspect-auto relative bg-slate-100 flex items-center justify-center">
+                  {currentSpeaker.image?.startsWith('data:') ? (
+                    <div className="w-32 h-32 text-slate-400">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                      </svg>
+                    </div>
+                  ) : (
+                    <img
+                      src={currentSpeaker.image}
+                      alt={currentSpeaker.name}
+                      className="absolute inset-0 w-full h-full object-cover"
+                    />
+                  )}
+                </div>
+                <div className="p-8 flex flex-col justify-center bg-slate-50 max-h-[80vh] md:max-h-none overflow-y-auto">
+                  <h2 className="text-2xl md:text-3xl font-display font-bold text-slate-900 mb-1 leading-tight">
+                    {currentSpeaker.name}
+                  </h2>
+                  <p className="text-brand-blue font-semibold text-sm mb-6">
+                    {currentSpeaker.role} @ {currentSpeaker.company}
+                  </p>
+                  
+                  <p className="text-slate-600 text-sm leading-relaxed mb-8 whitespace-pre-line max-h-60 overflow-y-auto pr-2">
+                    {currentSpeaker.bio}
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }

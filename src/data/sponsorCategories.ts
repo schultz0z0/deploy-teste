@@ -1,34 +1,50 @@
-// Patrocinadores (Fechado)
-import fechado1 from '../Patrocinadores/fechado/Novo-Projeto-2024-03-11T092150.858-qljgauv2m6paqetbifi9jnwgca7a097rj0k23kth00.png';
-import fechado2 from '../Patrocinadores/fechado/Novo-Projeto-2024-03-11T114613.098-qljgavsw73chjpc6rglq1t61apfwuwts9ogwj2pm0e.png';
-import fechado3 from '../Patrocinadores/fechado/Novo-Projeto-2024-03-21T161023.542-qljuzqpuufx8igvkquctns0wo7x10tl5vk2in8d3py.png';
-import fechado4 from '../Patrocinadores/fechado/Selo Turma Confirmada.png';
-import fechado5 from '../Patrocinadores/fechado/UNIMED-2-qljgazk8ci3jj6x7asazjphau82w2bgwugsl0qcpw6.png';
-import fechado6 from '../Patrocinadores/fechado/c6seg-qrhhzxyep6khwyqw73rb217i44d4jiww5iko6h9dzq.png';
-import fechado7 from '../Patrocinadores/fechado/capemisa-2-qljgaxokkrf26x9gghez6soyhh6nab18xxrvhmmtny.png';
-import fechado8 from '../Patrocinadores/fechado/hdi-y-qte7anxrb79aw3atgav5khxv0soogc8ly01rk6v3ji.png';
-import fechado9 from '../Patrocinadores/fechado/icatu-1-qljgaxokkrf26x9gghez6soyhh6nab18xxrvhmmtny.png';
-import fechado10 from '../Patrocinadores/fechado/image-2024-05-20T093356.166-qoftko6u7rxh45hcile7lbdqirxn868ryu7m0cs028.png';
-import fechado11 from '../Patrocinadores/fechado/ituram-qljgazk8ci3jj6x7asazjphau82w2bgwugsl0qcpw6.png';
-import fechado12 from '../Patrocinadores/fechado/logo-pottencial-qrhhzyw8w0ls8kpj1m5xmiyypi8hr80mhn85nr7zti.png';
-import fechado13 from '../Patrocinadores/fechado/master-ens-qljgatx8fco0esuonx3mz64zqwbwsk416vwkmauv68.png';
-import fechado14 from '../Patrocinadores/fechado/novo-porto-qljgatx8fco0esuonx3mz64zqwbwsk416vwkmauv68.png';
-import fechado15 from '../Patrocinadores/fechado/tokio-2-qljgauv2m6paqetbifi9jnwgca7a097rj0k23kth00.png';
-import fechado16 from '../Patrocinadores/fechado/zurich-1-qljgawqqdxdrvbatlz0cmaxhw3ba2lxilt4e0co7u6.png';
+// Master
+import allianz from '../Patrocinadores/Master/allianz.png';
+import bradesco from '../Patrocinadores/Master/bradesco seguros.png';
+import cnseg from '../Patrocinadores/Master/cnseg.png';
+import ens from '../Patrocinadores/Master/ens.png';
+import hdi from '../Patrocinadores/fechado/hdi.png';
+import icatu from '../Patrocinadores/fechado/icatu.png';
+import mag from '../Patrocinadores/fechado/mag_nova.png';
+import mapfre from '../Patrocinadores/fechado/mapfre.png';
+import porto from '../Patrocinadores/Master/porto.png';
+import tokio from '../Patrocinadores/Master/tokio marine.png';
+import zurich from '../Patrocinadores/Patrocinadores/zurich.png';
 
-// Apoio Institucional
-import apoioInst2 from '../Patrocinadores/Apoio Institucional/ibracor-2-qljgb1fw48rtiac7dp9pmuyu96qf6lzr0jfo7yx82e.png';
+// Patrocinador/Expositor (Expositores + Patrocinador Expositor)
+import axa from '../Patrocinadores/Expositores/AXA.png';
+import capemisa from '../Patrocinadores/Patrocinadores/capemisa.png';
+import c6 from '../Patrocinadores/Expositores/c6seg.png';
+import ituran from '../Patrocinadores/Expositores/ituran.png';
+import maxpar from '../Patrocinadores/Expositores/maxpar.png';
+import pottencial from '../Patrocinadores/Expositores/pottencial.png';
+import unimed from '../Patrocinadores/Expositores/UNIMED.png';
 
-// Organização
-import org1 from '../Patrocinadores/Organização/logo-idealizar-light-qtppqaza9as8jna6lw72iq1vvu7vco8uotyqi5wl4w.png';
+// Imports da pasta Patrocinador Expositor
+import allseg from '../Patrocinadores/Patrocinador Expositor/allseg seguradora.png';
+import bancorbras from '../Patrocinadores/Patrocinador Expositor/Bancorbras.png';
+import justos from '../Patrocinadores/Patrocinador Expositor/Justos.png';
+import mbm from '../Patrocinadores/Patrocinador Expositor/mbm.png';
+import metlife from '../Patrocinadores/Patrocinador Expositor/Metlife.png';
+import pilkington from '../Patrocinadores/Patrocinador Expositor/Pilkington.png';
+import proauto from '../Patrocinadores/Patrocinador Expositor/Proauto.png';
+import prudential from '../Patrocinadores/Patrocinador Expositor/Prudential.png';
+import sabemi from '../Patrocinadores/Patrocinador Expositor/Sabemi.png';
+import sicoob from '../Patrocinadores/Patrocinador Expositor/Sicoob.png';
+import sulamerica from '../Patrocinadores/Patrocinador Expositor/SulAmerica.png';
+import centauro from '../Patrocinadores/Patrocinador Expositor/centauro.png';
+import irb from '../Patrocinadores/Patrocinador Expositor/irb.png';
+import globoseg from '../Patrocinadores/Patrocinador Expositor/globoseg.png';
+
+// Patrocinador Institucional
+import cnc from '../Patrocinadores/Apoio Institucional/cnc.png';
+import fecomercio from '../Patrocinadores/Apoio Institucional/fecomercio.png';
+import ibdcor from '../Patrocinadores/Apoio Institucional/Ibdcor.png';
+import ibracor from '../Patrocinadores/Apoio Institucional/ibracor.png';
 
 // Realização
-import real1 from '../Patrocinadores/Realização/fenacor2-qjimynqkha11u6okw8yidn138sf5ngpd08kkpf4mww.png';
-import real2 from '../Patrocinadores/Realização/sincor-qjimwyn251pevj5bt0jrdkg4mqsar4yt3u60ifn85c.png';
-
-// Seguradoras Oficiais
-import seg1 from '../Patrocinadores/Seguradoras Oficiais/capemisa-2-qljgaxogx7327phvfye76mtlgd76ix7wfu702wcf7k.png';
-import seg2 from '../Patrocinadores/Seguradoras Oficiais/tokio-2-qljgauuycoz78vlywf6bh5j7o7l2vtwpfg8jn2glq8.png';
+import fenacor from '../Patrocinadores/Realização/fenacor.png';
+import sincor from '../Patrocinadores/Realização/sincor.png';
 
 export interface SponsorCategory {
   title: string;
@@ -43,55 +59,72 @@ export interface SponsorCategory {
 
 export const sponsorCategories: SponsorCategory[] = [
   {
-    title: 'Patrocinadores',
-    size: 'lg',
+    title: 'Master',
+    size: 'xl',
     sponsors: [
-      { id: 'f1', name: 'Patrocinador 1', logo: fechado1, url: '#' },
-      { id: 'f2', name: 'Patrocinador 2', logo: fechado2, url: '#' },
-      { id: 'f3', name: 'Patrocinador 3', logo: fechado3, url: '#' },
-      { id: 'f4', name: 'Selo Turma Confirmada', logo: fechado4, url: '#' },
-      { id: 'f5', name: 'Unimed', logo: fechado5, url: '#' },
-      { id: 'f6', name: 'C6 Seg', logo: fechado6, url: '#' },
-      { id: 'f7', name: 'Capemisa', logo: fechado7, url: '#' },
-      { id: 'f8', name: 'HDI', logo: fechado8, url: '#' },
-      { id: 'f9', name: 'Icatu', logo: fechado9, url: '#' },
-      { id: 'f10', name: 'Patrocinador 10', logo: fechado10, url: '#' },
-      { id: 'f11', name: 'Ituram', logo: fechado11, url: '#' },
-      { id: 'f12', name: 'Pottencial', logo: fechado12, url: '#' },
-      { id: 'f13', name: 'ENS', logo: fechado13, url: '#' },
-      { id: 'f14', name: 'Porto', logo: fechado14, url: '#' },
-      { id: 'f15', name: 'Tokio Marine', logo: fechado15, url: '#' },
-      { id: 'f16', name: 'Zurich', logo: fechado16, url: '#' },
+      { id: 'm1', name: 'Allianz', logo: allianz, url: '#' },
+      { id: 'm2', name: 'Bradesco', logo: bradesco, url: '#' },
+      { id: 'm3', name: 'CNseg', logo: cnseg, url: '#' },
+      { id: 'm4', name: 'ENS', logo: ens, url: '#' },
+      { id: 'm5', name: 'HDI/Yelum', logo: hdi, url: '#' },
+      { id: 'm6', name: 'Icatu Seguros', logo: icatu, url: '#' },
+      { id: 'm7', name: 'MAG', logo: mag, url: '#' },
+      { id: 'm8', name: 'Mapfre', logo: mapfre, url: '#' },
+      { id: 'm9', name: 'Porto', logo: porto, url: '#' },
+      { id: 'm10', name: 'Tokio Marine', logo: tokio, url: '#' },
+      { id: 'm11', name: 'Zurich', logo: zurich, url: '#' },
     ]
   },
   {
-    title: 'Apoio Institucional',
-    size: 'sm',
+    title: 'Patrocinador/Expositor',
+    size: 'md',
     sponsors: [
-      { id: 'ai2', name: 'Ibracor', logo: apoioInst2, url: '#' },
+      { id: 'pe1', name: 'Allseg Seguradora', logo: allseg, url: '#' },
+      { id: 'pe2', name: 'Axa', logo: axa, url: '#' },
+      { id: 'pe3', name: 'Bancorbrás', logo: bancorbras, url: '#' },
+      { id: 'pe4', name: 'Capemisa', logo: capemisa, url: '#' },
+      { id: 'pe19', name: 'Centauro', logo: centauro, url: '#' },
+      { id: 'pe5', name: 'C6 Bank', logo: c6, url: '#' },
+      { id: 'pe21', name: 'GloboSeg', logo: globoseg, url: '#' },
+      { id: 'pe6', name: 'Ituran', logo: ituran, url: '#' },
+      { id: 'pe20', name: 'IRB(Seg)', logo: irb, url: '#' },
+      { id: 'pe7', name: 'Justos', logo: justos, url: '#' },
+      { id: 'pe8', name: 'Maxpar', logo: maxpar, url: '#' },
+      { id: 'pe9', name: 'MBM', logo: mbm, url: '#' },
+      { id: 'pe10', name: 'MetLife', logo: metlife, url: '#' },
+      { id: 'pe11', name: 'Pilkington', logo: pilkington, url: '#' },
+      { id: 'pe12', name: 'Pottencial', logo: pottencial, url: '#' },
+      { id: 'pe13', name: 'Proauto', logo: proauto, url: '#' },
+      { id: 'pe14', name: 'Prudential', logo: prudential, url: '#' },
+      { id: 'pe15', name: 'Sabemi', logo: sabemi, url: '#' },
+      { id: 'pe16', name: 'Sicoob', logo: sicoob, url: '#' },
+      { id: 'pe17', name: 'SulAmérica', logo: sulamerica, url: '#' },
+      { id: 'pe18', name: 'Unimed', logo: unimed, url: '#' },
     ]
   },
   {
-    title: 'Seguradoras Oficiais',
-    size: 'lg',
+    title: 'Patrocinador Institucional',
+    size: 'md',
     sponsors: [
-      { id: 's1', name: 'Capemisa', logo: seg1, url: '#' },
-      { id: 's2', name: 'Tokio Marine', logo: seg2, url: '#' },
+      { id: 'pi1', name: 'IBDCOR', logo: ibdcor, url: '#' },
+    ]
+  },
+  {
+    title: 'Parceiros Institucionais',
+    size: 'md',
+    sponsors: [
+      { id: 'pa1', name: 'CNC', logo: cnc, url: '#' },
+      { id: 'pa2', name: 'Fecomércio RJ', logo: fecomercio, url: '#' },
+      { id: 'pa3', name: 'Ibracor', logo: ibracor, url: '#' },
     ]
   },
   {
     title: 'Realização',
     size: 'sm',
     sponsors: [
-      { id: 'r1', name: 'Fenacor', logo: real1, url: '#' },
-      { id: 'r2', name: 'Sincor', logo: real2, url: '#' },
+      { id: 'r1', name: 'Fenacor', logo: fenacor, url: '#' },
+      { id: 'r2', name: 'Sincor', logo: sincor, url: '#' },
+      { id: 'r3', name: 'ENS', logo: ens, url: '#' },
     ]
-  },
-  {
-    title: 'Organização',
-    size: 'sm',
-    sponsors: [
-      { id: 'o1', name: 'Idealizar', logo: org1, url: '#' },
-    ]
-  },
+  }
 ];

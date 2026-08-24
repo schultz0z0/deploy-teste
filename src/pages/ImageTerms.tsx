@@ -14,7 +14,7 @@ export function ImageTerms() {
       />
 
       <section className="py-20 bg-white">
-        <div className="container mx-auto px-4 md:px-6 max-w-4xl prose prose-slate lg:prose-lg">
+        <div className="container mx-auto px-4 md:px-6 max-w-4xl text-page-content">
           <p>
             Ao participar do 24º Congresso Brasileiro dos Corretores de Seguros, o participante autoriza, de forma gratuita, irrevogável e por prazo indeterminado, a utilização de sua imagem e voz eventualmente captadas durante a realização do evento, por meio de fotografias, vídeos e gravações de áudio.
           </p>

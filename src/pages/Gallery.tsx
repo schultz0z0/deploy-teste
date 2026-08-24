@@ -5,10 +5,10 @@ import { X } from 'lucide-react';
 import { PageHeader } from '@/components/PageHeader';
 
 const images = [
-  { id: 1, src: '/galeria/corretores_13_10_012_5380_©2017_HeusiAction-MiriamJeske.jpg', alt: 'Galeria 1' },
-  { id: 2, src: '/galeria/corretores_13_10_168_6089_©2017_HeusiAction-MiriamJeske.jpg', alt: 'Galeria 2' },
-  { id: 3, src: '/galeria/corretores_14_10_250_9601_All rights reserved.jpg', alt: 'Galeria 3' },
-  { id: 4, src: '/galeria/corretores_14_10_328_0294_©2017_HeusiAction-MiriamJeske.jpg', alt: 'Galeria 4' },
+  { id: 1, src: '/galeria/corretores_1.jpg', alt: 'Galeria 1' },
+  { id: 2, src: '/galeria/corretores_2.jpg', alt: 'Galeria 2' },
+  { id: 3, src: '/galeria/corretores_3.jpg', alt: 'Galeria 3' },
+  { id: 4, src: '/galeria/corretores_4.jpg', alt: 'Galeria 4' },
   { id: 5, src: '/galeria/dia01_con_556.jpg', alt: 'Galeria 5' },
   { id: 6, src: '/galeria/dia01_con_592.jpg', alt: 'Galeria 6' },
   { id: 7, src: '/galeria/dia02_con_385.jpg', alt: 'Galeria 7' },

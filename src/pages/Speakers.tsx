@@ -9,6 +9,7 @@ import { PageHeader } from '@/components/PageHeader';
 export function Speakers() {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedSpeaker, setSelectedSpeaker] = useState<string | null>(null);
+  const currentSpeaker = speakers.find(s => s.id === selectedSpeaker);
 
   const filteredSpeakers = speakers.filter(speaker =>
     speaker.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -57,7 +58,7 @@ export function Speakers() {
                   <img
                     src={speaker.image}
                     alt={speaker.name}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    className={cn("w-full h-full object-cover transition-transform duration-500 group-hover:scale-105", speaker.imagePosition)}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity" />
                   
@@ -74,7 +75,7 @@ export function Speakers() {
       </div>
 
       {/* Modal */}
-      {selectedSpeaker && (
+      {selectedSpeaker && currentSpeaker && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm" onClick={() => setSelectedSpeaker(null)}>
           <motion.div
             layoutId={`speaker-${selectedSpeaker}`}
@@ -89,37 +90,40 @@ export function Speakers() {
             </button>
             
             <div className="grid md:grid-cols-2">
-              <div className="aspect-[3/4] md:aspect-auto relative">
-                <img
-                  src={speakers.find(s => s.id === selectedSpeaker)?.image}
-                  alt={speakers.find(s => s.id === selectedSpeaker)?.name}
-                  className="absolute inset-0 w-full h-full object-cover"
-                />
+              <div className="aspect-[3/4] md:aspect-auto relative bg-slate-100 flex items-center justify-center">
+                {currentSpeaker.image?.startsWith('data:') ? (
+                  <div className="w-32 h-32 text-slate-400">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                    </svg>
+                  </div>
+                ) : (
+                  <img
+                    src={currentSpeaker.image}
+                    alt={currentSpeaker.name}
+                    className={cn("absolute inset-0 w-full h-full object-cover", currentSpeaker.imagePosition)}
+                  />
+                )}
               </div>
               <div className="p-8 flex flex-col justify-center bg-slate-50">
                 <h2 className="text-3xl font-display font-bold text-slate-900 mb-2">
-                  {speakers.find(s => s.id === selectedSpeaker)?.name}
+                  {currentSpeaker.name}
                 </h2>
                 <p className="text-brand-blue font-medium mb-6">
-                  {speakers.find(s => s.id === selectedSpeaker)?.role} @ {speakers.find(s => s.id === selectedSpeaker)?.company}
+                  {currentSpeaker.role} @ {currentSpeaker.company}
                 </p>
                 
                 <p className="text-slate-600 leading-relaxed mb-8">
-                  {speakers.find(s => s.id === selectedSpeaker)?.bio}
+                  {currentSpeaker.bio}
                 </p>
 
                 <div className="flex gap-4 mt-auto">
-                  {speakers.find(s => s.id === selectedSpeaker)?.socials.linkedin && (
-                    <a href="#" className="p-2 bg-white border border-slate-200 rounded-full text-slate-600 hover:text-brand-blue hover:border-brand-blue transition-colors">
-                      <Linkedin className="w-5 h-5" />
-                    </a>
-                  )}
-                  {speakers.find(s => s.id === selectedSpeaker)?.socials.twitter && (
+                  {currentSpeaker.socials.twitter && (
                     <a href="#" className="p-2 bg-white border border-slate-200 rounded-full text-slate-600 hover:text-brand-blue hover:border-brand-blue transition-colors">
                       <Twitter className="w-5 h-5" />
                     </a>
                   )}
-                  {speakers.find(s => s.id === selectedSpeaker)?.socials.instagram && (
+                  {currentSpeaker.socials.instagram && (
                     <a href="#" className="p-2 bg-white border border-slate-200 rounded-full text-slate-600 hover:text-brand-blue hover:border-brand-blue transition-colors">
                       <Instagram className="w-5 h-5" />
                     </a>

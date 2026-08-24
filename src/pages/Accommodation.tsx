@@ -1,45 +1,55 @@
 import { motion } from 'framer-motion';
 import { SEO } from '@/components/SEO';
-import { MapPin, Star, Wifi, Coffee, Car } from 'lucide-react';
+import { Building2, CreditCard, Mail, MapPin } from 'lucide-react';
 import { PageHeader } from '@/components/PageHeader';
 
 const hotels = [
   {
     id: 1,
-    name: "Grand Hyatt Rio de Janeiro",
-    image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=2070&auto=format&fit=crop",
-    description: "Luxo e sofisticação à beira-mar na Barra da Tijuca. O hotel oficial do evento oferece estrutura completa de lazer e negócios.",
-    location: "Barra da Tijuca, Rio de Janeiro",
-    stars: 5,
-    amenities: ["Wi-Fi Grátis", "Café da Manhã", "Transfer Evento", "Piscina"]
+    name: 'Hotel Intercity Porto Maravilha',
+    category: 'Standard',
+    prices: [
+      { label: 'Apt Single', value: 'R$ 1.440,00' },
+      { label: 'Apt Duplo', value: 'R$ 1.690,00' },
+    ],
   },
   {
     id: 2,
-    name: "Windsor Marapendi",
-    image: "https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?q=80&w=2070&auto=format&fit=crop",
-    description: "Localizado em frente à praia da Barra, oferece quartos modernos e uma vista deslumbrante. Excelente custo-benefício.",
-    location: "Barra da Tijuca, Rio de Janeiro",
-    stars: 4,
-    amenities: ["Wi-Fi Grátis", "Academia", "Restaurante"]
+    name: 'Hotel Novotel Porto Atlântico',
+    category: 'Superior',
+    prices: [
+      { label: 'Apt Single', value: 'R$ 2.200,00' },
+      { label: 'Apt Duplo', value: 'R$ 2.424,00' },
+    ],
   },
   {
     id: 3,
-    name: "Hilton Barra",
-    image: "https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?q=80&w=2070&auto=format&fit=crop",
-    description: "Design contemporâneo e serviço de classe mundial. Próximo aos principais shoppings e centros de entretenimento.",
-    location: "Barra da Tijuca, Rio de Janeiro",
-    stars: 5,
-    amenities: ["Wi-Fi Grátis", "Piscina no Terraço", "Transfer Evento"]
+    name: 'Hotel Windsor Guanabara',
+    category: 'Standard',
+    prices: [
+      { label: 'Apt Single', value: 'R$ 1.675,00' },
+      { label: 'Apt Duplo', value: 'R$ 1.925,00' },
+    ],
   },
   {
     id: 4,
-    name: "Novotel Parque Olímpico",
-    image: "https://images.unsplash.com/photo-1564501049412-61c2a3083791?q=80&w=2089&auto=format&fit=crop",
-    description: "Opção prática e confortável, ideal para quem busca proximidade com o evento e facilidade de acesso.",
-    location: "Barra da Tijuca, Rio de Janeiro",
-    stars: 4,
-    amenities: ["Wi-Fi Grátis", "Estacionamento", "Bar 24h"]
-  }
+    name: 'Hotel Windsor Guanabara',
+    category: 'Superior Executivo',
+    prices: [
+      { label: 'Apt Single', value: 'R$ 1.890,00' },
+      { label: 'Apt Duplo', value: 'R$ 2.175,00' },
+      { label: 'Apt Triplo', value: 'R$ 2.720,00' },
+    ],
+  },
+  {
+    id: 5,
+    name: 'Hotel Ibis Porto Atlântico',
+    category: 'Standard',
+    prices: [
+      { label: 'Apt Single', value: 'R$ 1.190,00' },
+      { label: 'Apt Duplo', value: 'R$ 1.410,00' },
+    ],
+  },
 ];
 
 export function Accommodation() {
@@ -47,17 +57,50 @@ export function Accommodation() {
     <div className="min-h-screen bg-slate-50">
       <SEO 
         title="Hospedagem" 
-        description="Hotéis oficiais com tarifas exclusivas para participantes." 
+        description="Pacotes de hospedagem oficiais do 24º Congresso Brasileiro dos Corretores de Seguros." 
       />
       
       <PageHeader 
         title="Hospedagem" 
-        description="Garanta sua estadia nos hotéis oficiais com tarifas negociadas."
+        description="Pacotes oficiais com café da manhã e taxas inclusas para o período de 27 a 30 de agosto de 2026."
       />
 
       <section className="py-20 bg-white">
-        <div className="container mx-auto px-4 md:px-6">
-          <div className="grid md:grid-cols-2 gap-8">
+        <div className="container mx-auto px-4 md:px-6 space-y-12">
+          <div className="grid lg:grid-cols-3 gap-6">
+            <div className="lg:col-span-2 bg-slate-50 rounded-2xl border border-slate-200 p-8">
+              <h2 className="text-3xl font-display font-bold text-slate-900 mb-4">
+                Pacotes de Hospedagem
+              </h2>
+              <p className="text-slate-600 text-lg leading-relaxed mb-4">
+                Os valores abaixo são referentes aos pacotes de hospedagem para o 24º Congresso Brasileiro dos Corretores de Seguros, com café da manhã e taxas inclusas.
+              </p>
+              <div className="flex items-start gap-3 text-slate-700">
+                <MapPin className="w-5 h-5 text-brand-blue shrink-0 mt-0.5" />
+                <p>
+                  Período: <strong>27 a 30 de agosto de 2026</strong> (3 noites)
+                </p>
+              </div>
+            </div>
+
+            <div className="bg-brand-blue text-white rounded-2xl p-8 shadow-lg">
+              <div className="flex items-center gap-3 mb-4">
+                <Mail className="w-5 h-5 text-brand-yellow" />
+                <h3 className="text-xl font-bold">Contato para reservas</h3>
+              </div>
+              <p className="text-white/90 leading-relaxed mb-4">
+                Para informações, condições de reserva e atendimento sobre hospedagem, entre em contato diretamente com a equipe responsável.
+              </p>
+              <a
+                href="mailto:eventos@abalonne.com.br"
+                className="inline-flex items-center font-semibold text-brand-yellow hover:underline"
+              >
+                eventos@abalonne.com.br
+              </a>
+            </div>
+          </div>
+
+          <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
             {hotels.map((hotel, index) => (
               <motion.div
                 key={hotel.id}
@@ -67,43 +110,55 @@ export function Accommodation() {
                 transition={{ delay: index * 0.1 }}
                 className="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-lg hover:shadow-xl transition-shadow flex flex-col"
               >
-                <div className="relative h-64 overflow-hidden">
-                  <img 
-                    src={hotel.image} 
-                    alt={hotel.name} 
-                    className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
-                  />
-                  <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full flex items-center gap-1 text-sm font-bold text-brand-yellow shadow-sm">
-                    <Star className="w-4 h-4 fill-current" />
-                    {hotel.stars}
+                <div className="bg-gradient-to-r from-brand-blue to-brand-teal p-6 text-white">
+                  <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center mb-4">
+                    <Building2 className="w-6 h-6" />
                   </div>
+                  <h3 className="text-2xl font-bold mb-2">{hotel.name}</h3>
+                  <p className="text-white/90 text-sm uppercase tracking-wide">
+                    Categoria: {hotel.category}
+                  </p>
                 </div>
                 
                 <div className="p-6 flex flex-col flex-grow">
-                  <h3 className="text-2xl font-bold text-slate-900 mb-2">{hotel.name}</h3>
-                  <div className="flex items-center gap-2 text-slate-500 text-sm mb-4">
-                    <MapPin className="w-4 h-4" />
-                    {hotel.location}
-                  </div>
-                  
-                  <p className="text-slate-600 mb-6 flex-grow">
-                    {hotel.description}
+                  <p className="text-sm font-medium text-slate-500 mb-4">
+                    Valor a prazo
                   </p>
 
-                  <div className="flex flex-wrap gap-2 mb-6">
-                    {hotel.amenities.map((amenity, i) => (
-                      <span key={i} className="text-xs bg-slate-100 text-slate-600 px-2 py-1 rounded-md border border-slate-200">
-                        {amenity}
-                      </span>
+                  <div className="space-y-3">
+                    {hotel.prices.map((price) => (
+                      <div key={price.label} className="flex items-center justify-between rounded-xl bg-slate-50 border border-slate-200 px-4 py-3">
+                        <span className="text-slate-700 font-medium">{price.label}</span>
+                        <span className="text-brand-blue font-bold">{price.value}</span>
+                      </div>
                     ))}
                   </div>
-
-                  <button className="w-full py-3 rounded-xl bg-brand-blue text-white font-bold hover:bg-brand-blue/90 transition-colors shadow-md">
-                    Reservar Agora
-                  </button>
                 </div>
               </motion.div>
             ))}
+          </div>
+
+          <div className="grid lg:grid-cols-2 gap-6">
+            <div className="bg-slate-50 rounded-2xl border border-slate-200 p-8">
+              <div className="flex items-center gap-3 mb-4">
+                <CreditCard className="w-5 h-5 text-brand-blue" />
+                <h3 className="text-2xl font-bold text-slate-900">Forma de pagamento</h3>
+              </div>
+              <p className="text-slate-600 leading-relaxed">
+                Parcelamento em até 8 vezes sem juros ou com desconto à vista no Pix ou transferência bancária.
+              </p>
+            </div>
+
+            <div className="bg-slate-50 rounded-2xl border border-slate-200 p-8">
+              <h3 className="text-2xl font-bold text-slate-900 mb-4">Política de cancelamento</h3>
+              <ul className="space-y-3 text-slate-600 leading-relaxed">
+                <li>Em até 7 dias da compra: sem multa de cancelamento.</li>
+                <li>Até 10/05/26: multa de 10%.</li>
+                <li>Até 10/06/26: multa de 60%.</li>
+                <li>Até 10/07/26: multa de 80%.</li>
+                <li>Após 11/07/26: não reembolsável.</li>
+              </ul>
+            </div>
           </div>
         </div>
       </section>

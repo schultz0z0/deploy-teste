@@ -1,9 +1,63 @@
+import { FormEvent, useState } from 'react';
 import { motion } from 'framer-motion';
 import { MapPin, Mail, Phone, Send } from 'lucide-react';
 import { SEO } from '@/components/SEO';
 import { PageHeader } from '@/components/PageHeader';
 
 export function Contact() {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [status, setStatus] = useState<{ type: 'success' | 'error'; message: string } | null>(null);
+
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+    const firstName = String(formData.get('firstName') ?? '').trim();
+    const lastName = String(formData.get('lastName') ?? '').trim();
+    const email = String(formData.get('email') ?? '').trim();
+    const subject = String(formData.get('subject') ?? '').trim();
+    const message = String(formData.get('message') ?? '').trim();
+
+    setIsSubmitting(true);
+    setStatus(null);
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          firstName,
+          lastName,
+          email,
+          subject,
+          message,
+        }),
+      });
+
+      const result = await response.json().catch(() => null);
+
+      if (!response.ok) {
+        throw new Error(result?.message || 'Não foi possível enviar a mensagem.');
+      }
+
+      form.reset();
+      setStatus({
+        type: 'success',
+        message: 'Mensagem enviada com sucesso. Nossa equipe responderá em breve.',
+      });
+    } catch (error) {
+      setStatus({
+        type: 'error',
+        message: error instanceof Error ? error.message : 'Não foi possível enviar a mensagem.',
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-slate-50">
       <SEO 
@@ -54,24 +108,24 @@ export function Contact() {
           {/* Form */}
           <div className="bg-slate-50 p-8 rounded-2xl border border-slate-100 shadow-sm">
             <h3 className="text-2xl font-bold text-slate-900 mb-6">Envie uma mensagem</h3>
-            <form className="space-y-4">
+            <form className="space-y-4" onSubmit={handleSubmit}>
               <div className="grid grid-cols-2 gap-4">
                 <div>
                   <label className="block text-sm font-medium text-slate-700 mb-1">Nome</label>
-                  <input type="text" className="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-brand-blue focus:border-transparent outline-none transition-all" />
+                  <input name="firstName" type="text" required className="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-brand-blue focus:border-transparent outline-none transition-all" />
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-slate-700 mb-1">Sobrenome</label>
-                  <input type="text" className="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-brand-blue focus:border-transparent outline-none transition-all" />
+                  <input name="lastName" type="text" className="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-brand-blue focus:border-transparent outline-none transition-all" />
                 </div>
               </div>
               <div>
                 <label className="block text-sm font-medium text-slate-700 mb-1">E-mail</label>
-                <input type="email" className="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-brand-blue focus:border-transparent outline-none transition-all" />
+                <input name="email" type="email" required className="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-brand-blue focus:border-transparent outline-none transition-all" />
               </div>
               <div>
                 <label className="block text-sm font-medium text-slate-700 mb-1">Assunto</label>
-                <select className="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-brand-blue focus:border-transparent outline-none transition-all bg-white">
+                <select name="subject" className="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-brand-blue focus:border-transparent outline-none transition-all bg-white">
                   <option>Dúvidas sobre Inscrição</option>
                   <option>Imprensa</option>
                   <option>Patrocínio</option>
@@ -80,12 +134,17 @@ export function Contact() {
               </div>
               <div>
                 <label className="block text-sm font-medium text-slate-700 mb-1">Mensagem</label>
-                <textarea rows={4} className="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-brand-blue focus:border-transparent outline-none transition-all resize-none"></textarea>
+                <textarea name="message" rows={4} required className="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-brand-blue focus:border-transparent outline-none transition-all resize-none"></textarea>
               </div>
-              <button className="w-full py-4 rounded-xl bg-brand-blue text-white font-bold hover:bg-brand-teal transition-colors flex items-center justify-center gap-2 shadow-lg shadow-brand-blue/20">
-                Enviar Mensagem
+              <button type="submit" disabled={isSubmitting} className="w-full py-4 rounded-xl bg-brand-blue text-white font-bold hover:bg-brand-teal transition-colors flex items-center justify-center gap-2 shadow-lg shadow-brand-blue/20 disabled:opacity-70 disabled:cursor-not-allowed">
+                {isSubmitting ? 'Enviando...' : 'Enviar Mensagem'}
                 <Send className="w-5 h-5" />
               </button>
+              {status && (
+                <p className={status.type === 'success' ? 'text-sm font-medium text-emerald-600' : 'text-sm font-medium text-red-600'}>
+                  {status.message}
+                </p>
+              )}
             </form>
           </div>
         </div>

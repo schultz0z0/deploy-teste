@@ -4,6 +4,7 @@ import { Layout } from '@/components/Layout';
 import { Home } from '@/pages/Home';
 import { About } from '@/pages/About';
 import { Schedule } from '@/pages/Schedule';
+import { BusinessRoomsSchedule } from '@/pages/BusinessRoomsSchedule';
 import { Speakers } from '@/pages/Speakers';
 import { Tickets } from '@/pages/Tickets';
 import { Sponsors } from '@/pages/Sponsors';
@@ -18,6 +19,7 @@ import { PromoRegulation } from '@/pages/PromoRegulation';
 import { SweepstakesRegulation } from '@/pages/SweepstakesRegulation';
 import { RegistrationRegulation } from '@/pages/RegistrationRegulation';
 import { PromoConsegnneRegulation } from '@/pages/PromoConsegnneRegulation';
+import { PromoConexaoFuturoSeguroRegulation } from '@/pages/PromoConexaoFuturoSeguroRegulation';
 
 import { Gallery } from '@/pages/Gallery';
 import { Press } from '@/pages/Press';
@@ -25,12 +27,25 @@ import { AppPage } from '@/pages/AppPage';
 import { Transfer } from '@/pages/Transfer';
 import { Accommodation } from '@/pages/Accommodation';
 
-function ScrollToTop() {
-  const { pathname } = useLocation();
+declare global {
+  interface Window {
+    gtag?: (...args: any[]) => void;
+    dataLayer?: any[];
+  }
+}
+
+function PageTracker() {
+  const { pathname, search } = useLocation();
 
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, [pathname]);
+
+    if (typeof window.gtag === 'function') {
+      window.gtag('config', 'G-0PX75L0JVS', {
+        page_path: pathname + search,
+      });
+    }
+  }, [pathname, search]);
 
   return null;
 }
@@ -38,11 +53,14 @@ function ScrollToTop() {
 export default function App() {
   return (
     <Layout>
-      <ScrollToTop />
+      <PageTracker />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/sobre" element={<About />} />
         <Route path="/programacao" element={<Schedule />} />
+        <Route path="/programacao-salas-negocios" element={<BusinessRoomsSchedule />} />
+        <Route path="/salas-negocios" element={<BusinessRoomsSchedule />} />
+
         <Route path="/palestrantes" element={<Speakers />} />
         <Route path="/inscricoes" element={<Tickets />} />
         <Route path="/expositores" element={<Sponsors />} />
@@ -59,13 +77,14 @@ export default function App() {
         <Route path="/regulamento-sorteio" element={<SweepstakesRegulation />} />
         <Route path="/regulamento-inscricao" element={<RegistrationRegulation />} />
         <Route path="/regulamento-consegnne" element={<PromoConsegnneRegulation />} />
+        <Route path="/regulamento-conexao-futuro-seguro" element={<PromoConexaoFuturoSeguroRegulation />} />
 
         {/* New Services/Media Routes */}
         <Route path="/galeria" element={<Gallery />} />
         <Route path="/imprensa" element={<Press />} />
         <Route path="/app" element={<AppPage />} />
         <Route path="/transfer" element={<Transfer />} />
-        {/* <Route path="/hospedagem" element={<Accommodation />} /> */}
+        <Route path="/hospedagem" element={<Accommodation />} />
       </Routes>
     </Layout>
   );

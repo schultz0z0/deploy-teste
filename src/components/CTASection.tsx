@@ -29,12 +29,7 @@ export function CTASection() {
               Inscreva-se Agora
               <ArrowRight className="w-5 h-5" />
             </Link>
-            <Link
-              to="/programacao"
-              className="px-8 py-4 rounded-full bg-white/10 backdrop-blur-sm border border-white/10 text-white font-semibold text-lg hover:bg-white/20 transition-all duration-300"
-            >
-              Ver Programação
-            </Link>
+
           </div>
           <p className="mt-6 text-sm text-slate-400">
             Pagamento seguro em até 12x • Satisfação garantida

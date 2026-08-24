@@ -16,7 +16,7 @@ export function RegistrationRegulation() {
 
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4 md:px-6 max-w-4xl">
-          <div className="prose prose-slate lg:prose-lg mx-auto">
+          <div className="text-page-content">
             <p>
               O 24º Congresso Brasileiro dos Corretores de Seguros será realizado no Rio de Janeiro/RJ, nos dias 27, 28 e 29 de Agosto de 2026, no ExpoRio - Cidade Nova situado na Rua Beatriz Larragoiti Lucas, s/n Cidade Nova – Rio de Janeiro - RJ – CEP 20211-175.
             </p>
@@ -99,6 +99,7 @@ export function RegistrationRegulation() {
               O cancelamento da inscrição, ou inscrições, poderá ser solicitado, através do e-mail <a href="mailto:24congresso@fenacor.org.br">24congresso@fenacor.org.br</a>, anexando cópia do comprovante de pagamento, respeitando os prazos e condições estabelecidas abaixo.
             </p>
             <ul>
+              <li>Para solicitações de cancelamento realizadas em até 7 (sete) dias, contados a partir da data da inscrição efetuada, o valor do reembolso corresponderá a 100% (cem por cento) do valor pago.</li>
               <li>Para solicitações de cancelamento realizadas até 31 de Maio de 2026, o valor do reembolso será correspondente a 80% (oitenta por cento) do valor pago.</li>
               <li>Para solicitações de cancelamento realizadas de 01 de junho ate 31 de Julho de 2026, o valor do reembolso será correspondente a 50% (cinquenta por cento) do valor pago.</li>
               <li>As solicitações de cancelamento realizadas a partir do dia 01 de agosto de 2026 não serão aceitas e, portanto, não terão direito ao reembolso de valores.</li>

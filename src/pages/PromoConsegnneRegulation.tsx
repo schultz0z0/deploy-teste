@@ -16,7 +16,7 @@ export function PromoConsegnneRegulation() {
 
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4 md:px-6 max-w-4xl">
-          <div className="prose prose-slate lg:prose-lg mx-auto">
+          <div className="text-page-content mx-auto">
             <p>
               O 24º Congresso Brasileiro dos Corretores de Seguros será realizado no Rio de Janeiro/RJ, nos dias 27, 28 e 29 de Agosto de 2026, no ExpoRio - Cidade Nova situado na Rua Beatriz Larragoite Lucas, s/n Cidade Nova – Rio de Janeiro - RJ – CEP 20211-175.
             </p>

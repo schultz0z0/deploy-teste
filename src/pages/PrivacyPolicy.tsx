@@ -15,7 +15,7 @@ export function PrivacyPolicy() {
       />
 
       <section className="py-20 bg-white">
-        <div className="container mx-auto px-4 md:px-6 max-w-4xl prose prose-slate lg:prose-lg">
+        <div className="container mx-auto px-4 md:px-6 max-w-4xl text-page-content">
           <h2>Política de Privacidade</h2>
           <p>
             Estas políticas de privacidade (denominadas “Política de Privacidade”) aplicam-se a todos os usuários cadastrados e visitantes e integram os Termos e condições gerais de uso do site www.congressodoscorretores.com.br.

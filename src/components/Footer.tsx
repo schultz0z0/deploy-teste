@@ -62,7 +62,7 @@ export function Footer() {
             <h4 className="text-white font-bold mb-6">Navegação</h4>
             <ul className="space-y-3 text-sm">
               <li><Link to="/sobre" className="hover:text-brand-teal transition-colors">Sobre o Evento</Link></li>
-              <li><Link to="/programacao" className="hover:text-brand-teal transition-colors">Programação Completa</Link></li>
+              <li><Link to="/programacao" className="hover:text-brand-teal transition-colors">Programação</Link></li>
               <li><Link to="/palestrantes" className="hover:text-brand-teal transition-colors">Palestrantes</Link></li>
               <li><Link to="/expositores" className="hover:text-brand-teal transition-colors">Seja um Expositor</Link></li>
             </ul>
@@ -73,6 +73,8 @@ export function Footer() {
             <h4 className="text-white font-bold mb-6">Informações</h4>
             <ul className="space-y-3 text-sm">
               <li><Link to="/inscricoes" className="hover:text-brand-teal transition-colors">Ingressos</Link></li>
+              <li><Link to="/hospedagem" className="hover:text-brand-teal transition-colors">Hospedagem</Link></li>
+              <li><Link to="/transfer" className="hover:text-brand-teal transition-colors">Transfer Oficial</Link></li>
               <li><Link to="/faq" className="hover:text-brand-teal transition-colors">Perguntas Frequentes</Link></li>
               <li><Link to="/regulamento-inscricao" className="hover:text-brand-teal transition-colors">Regulamento de Inscrição</Link></li>
               <li><Link to="/politicas" className="hover:text-brand-teal transition-colors">Política de Privacidade</Link></li>

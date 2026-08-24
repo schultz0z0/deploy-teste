@@ -35,6 +35,30 @@
   }
 }
 
+@layer components {
+  .text-page-content {
+    @apply text-justify text-slate-600 font-sans text-lg leading-relaxed;
+  }
+  .text-page-content p {
+    @apply mb-6;
+  }
+  .text-page-content h2 {
+    @apply text-2xl md:text-3xl font-bold text-slate-900 mb-6 mt-12;
+  }
+  .text-page-content h3 {
+    @apply text-xl md:text-2xl font-bold text-slate-900 mb-4 mt-8;
+  }
+  .text-page-content h4 {
+    @apply text-lg md:text-xl font-bold text-slate-900 mb-4 mt-6;
+  }
+  .text-page-content ul {
+    @apply list-disc list-inside mb-6 space-y-2;
+  }
+  .text-page-content li {
+    @apply mb-2;
+  }
+}
+
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;

@@ -14,7 +14,7 @@ export function Regulation() {
       />
 
       <section className="py-20 bg-white">
-        <div className="container mx-auto px-4 md:px-6 max-w-4xl prose prose-slate lg:prose-lg">
+        <div className="container mx-auto px-4 md:px-6 max-w-4xl text-page-content">
           <h2>1. Da Participação</h2>
           <p>
             O 24º Congresso Brasileiro dos Corretores de Seguros é um evento destinado a profissionais do mercado de seguros, corretores, seguradoras e prestadores de serviços.
