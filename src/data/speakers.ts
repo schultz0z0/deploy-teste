@@ -139,16 +139,6 @@ const rawSpeakers: Speaker[] = [
     featured: true,
   },
 {
-    id: '19',
-    name: 'Luciana Soares',
-    role: 'Superintendente de Produtos e Serviços',
-    company: 'AXA no Brasil',
-    bio: 'Com quase 20 anos de mercado securitário, Luciana Soares passou pelas áreas de Negócios e Experiência do Cliente durante sua carreira, e hoje é responsável pela cadeira de Superintendente de Produtos e Serviços na AXA no Brasil.',
-    image: '/luciana_soares.jpg',
-    socials: { linkedin: '#' },
-    featured: true,
-  },
-{
     id: '7',
     name: 'Luciano Soares',
     role: 'Presidente',

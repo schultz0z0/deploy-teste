@@ -121,11 +121,16 @@ export function Accommodation() {
                 </div>
                 
                 <div className="p-6 flex flex-col flex-grow">
-                  <p className="text-sm font-medium text-slate-500 mb-4">
-                    Valor a prazo
-                  </p>
+                  <div className="flex items-center gap-2 mb-4">
+                    <span className="px-3 py-1 bg-red-100 text-red-700 font-bold text-xs rounded-full uppercase tracking-wider">
+                      Esgotado
+                    </span>
+                    <p className="text-sm font-medium text-slate-400 line-through">
+                      Valor a prazo
+                    </p>
+                  </div>
 
-                  <div className="space-y-3">
+                  <div className="space-y-3 opacity-60 grayscale">
                     {hotel.prices.map((price) => (
                       <div key={price.label} className="flex items-center justify-between rounded-xl bg-slate-50 border border-slate-200 px-4 py-3">
                         <span className="text-slate-700 font-medium">{price.label}</span>

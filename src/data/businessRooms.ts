@@ -129,7 +129,7 @@ export const businessRoomsData: BusinessRoom[] = [
       },
       t2: {
         tema: 'Tema: Influência e Performance: Como usar a tecnologia para oportunidades de vendas',
-        palestrantes: 'Palestrantes: Oliver Haider - Diretor de Marketing do Grupo Porto; Rodrigo Vasconcellos - Diretor Comercial SP Capital e Metropolitana do Grupo Porto.'
+        palestrantes: 'Palestrantes: Mariana Conti - Gerente de Marketing Institucional do Grupo Porto; Rodrigo Vasconcellos - Diretor Comercial SP Capital e Metropolitana do Grupo Porto.'
       },
       t3: {
         tema: 'Tema: Corretor Mais Phygital: Como fidelizar o seu cliente com a Porto Serviço',

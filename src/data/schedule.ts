@@ -170,7 +170,7 @@ export const rawScheduleData: ScheduleItem[] = [
     debaters: [
       { name: 'Flávio Bitter', role: 'Diretor Geral da Bradesco Saúde', fullString: 'Flávio Bitter - Diretor Geral da Bradesco Saúde' },
       { name: 'Bruno Sobral', role: 'Diretor-Executivo da FenaSaúde', fullString: 'Bruno Sobral - Diretor-Executivo da FenaSaúde' },
-      { name: 'Heitor Augusto', role: 'Vice Presidente Comercial Saúde e Odonto', fullString: 'Heitor Augusto -Vice Presidente Comercial Saúde e Odonto' },
+      { name: 'Heitor Augusto', role: 'Vice-Presidente Comercial Saúde e Odonto da SulAmérica', fullString: 'Heitor Augusto - Vice-Presidente Comercial Saúde e Odonto da SulAmérica' },
     ],
   },
   {
