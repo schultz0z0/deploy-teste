@@ -129,7 +129,7 @@ export const rawScheduleData: ScheduleItem[] = [
       { name: 'Eduard Folch Rue', role: 'CEO da Allianz Seguros no Brasil', fullString: 'Eduard Folch Rue - CEO da Allianz Seguros no Brasil' },
       { name: 'Eduardo Dal Ri', role: 'CEO do Grupo HDI', fullString: 'Eduardo Dal Ri - CEO do Grupo HDI' },
       { name: 'Felipe Nascimento', role: 'CEO da MAPFRE Brasil', fullString: 'Felipe Nascimento - CEO da MAPFRE Brasil' },
-      { name: 'José Adalberto Ferrara', role: 'Presidente da Tokio Marine Seguradora', fullString: 'José Adalberto Ferrara - Presidente da Tokio Marine Seguradora' },
+      { name: 'Marcelo Goldman', role: 'Vice-Presidente Comercial e de Produtos Massificados da Tokio Marine Seguradora', fullString: 'Marcelo Goldman - Vice-Presidente Comercial e de Produtos Massificados da Tokio Marine Seguradora' },
       { name: 'Ney Dias', role: 'CEO da Bradseg Participações SA', fullString: 'Ney Dias - CEO da Bradseg Participações SA' },
       { name: 'Paulo Kakinoff', role: 'CEO do Grupo Porto', fullString: 'Paulo Kakinoff - CEO do Grupo Porto' },
     ],
@@ -153,7 +153,7 @@ export const rawScheduleData: ScheduleItem[] = [
     debaters: [
       { name: 'Nelson Filipe de Oliveira Lopes Alves', role: 'COO MAPFRE', fullString: 'Nelson Filipe de Oliveira Lopes Alves - COO MAPFRE' },
       { name: 'Luiz Arruda', role: 'Vice-Presidente Comercial, Marketing, Clientes e Dados do Grupo Porto', fullString: 'Luiz Arruda - Vice-Presidente Comercial, Marketing, Clientes e Dados do Grupo Porto' },
-      { name: 'Marcelo Goldman', role: 'Vice-Presidente Comercial e de Produtos Massificados da Tokio Marine Seguradora', fullString: 'Marcelo Goldman - Vice-Presidente Comercial e de Produtos Massificados da Tokio Marine Seguradora' },
+      { name: 'Adilson Lavrador', role: 'Diretor Executivo de Operações, Tecnologia e Sinistros da Tokio Marine Seguradora', fullString: 'Adilson Lavrador - Diretor Executivo de Operações, Tecnologia e Sinistros da Tokio Marine Seguradora' },
     ],
   },
   {
@@ -170,7 +170,7 @@ export const rawScheduleData: ScheduleItem[] = [
     debaters: [
       { name: 'Flávio Bitter', role: 'Diretor Geral da Bradesco Saúde', fullString: 'Flávio Bitter - Diretor Geral da Bradesco Saúde' },
       { name: 'Bruno Sobral', role: 'Diretor-Executivo da FenaSaúde', fullString: 'Bruno Sobral - Diretor-Executivo da FenaSaúde' },
-      { name: 'Heitor Augusto', role: 'Vice-Presidente Comercial Saúde e Odonto da SulAmérica', fullString: 'Heitor Augusto - Vice-Presidente Comercial Saúde e Odonto da SulAmérica' },
+      { name: 'Heitor Augusto' },
     ],
   },
   {
